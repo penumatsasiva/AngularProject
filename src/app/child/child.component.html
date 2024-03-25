@@ -1,0 +1,30 @@
+<h1>Child </h1>
+<input type="text"  (keyup)="fetchData($event)">
+<p [dynamiClass]="'red'">{{'test pipe behaviour'|customuppercase:'_'}}</p>
+<p *appLoadIf="true">Show Block</p>
+<p *appLoadIf="false">Show Block</p>
+<button appToggle>submit</button>
+
+<!-- <app-sub-child></app-sub-child>
+<app-sibiling></app-sibiling> -->
+<!-- <ng-select [items]="cities"
+bindLabel="name"
+bindValue="id"
+[multiple]="true"
+groupBy="selectedAllGroup"
+[selectableGroup]="true"
+placeholder="Select cities"
+
+>
+
+<ng-template 
+ ng-optgroup-tmp let-item="item" 
+ let-item$="item$" let-index="index">
+ <input id="item-{{index}}" type="checkbox"
+ [ngModel] ="item$.selected"/> Select All
+</ng-template>
+</ng-select> -->
+
+<app-template-form></app-template-form>
+<app-reactive-form></app-reactive-form>
+

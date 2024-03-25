@@ -1,0 +1,49 @@
+<h1>reactive  model form </h1>
+
+<form [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+   <label  for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" required formControlName="firstname">
+    <div>
+
+       <span *ngIf="contactForm.get('firstname')?.valid && contactForm.touched && contactForm.get('firstname')?.hasError('required')">
+        First Name is required
+       </span> 
+       <span *ngIf="contactForm.invalid && contactForm.touched && contactForm.get('firstname')?.hasError('minlength')">
+       Enter Min length 6
+       </span>  
+     
+    </div>
+    <br>
+    <br>
+
+    <label  for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname"   required formControlName="lastname">
+    <br>
+    <br>
+    <label  for="age">Age</label>
+    <input type="number" name="age" id="age"  required formControlName="age">
+    <div>
+
+        <span *ngIf="contactForm.invalid && contactForm.touched && contactForm.get('age')?.hasError('required')">
+            age is required
+        </span> 
+      
+        <span *ngIf="!contactForm.get('firstname')?.valid && contactForm.get('firstname')?.touched && contactForm.get('age')?.hasError('gte')">
+        Age should more than 18 
+         </span>  
+     </div>
+    <br>
+    <br>
+    <label  for="married">Married</label>
+    <input type="checkbox" name="married" id="married" formControlName="married">
+    <br>
+    <br>
+    <label  for="gender">Gender</label>
+    <input type="radio" value="male" name="gender" id="gender" formControlName="gender">Male
+    <input type="radio" value="female" name="gender" id="gender" formControlName="gender">Female
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="reset()">Reset</button>
+
+</form>

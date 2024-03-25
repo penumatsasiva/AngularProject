@@ -1,0 +1,45 @@
+<h1>template drivene form </h1>
+
+<form #contactForm="ngForm"   (ngSubmit)="submit(contactForm)" >
+   <label  for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" required="true"  #cfname="ngModel" [(ngModel)]="contact.firstname">
+    <br>
+    <br>
+    <div *ngIf="!cfname?.valid && (cfname?.dirty || cfname?.touched)" class="error">
+        <div *ngIf="cfname.hasError('required')">
+            First Name is required
+        </div>
+    </div>
+
+    <label  for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" #clname="ngModel" [(ngModel)]="contact.lastname">
+    <br>
+    <br>
+    <label  for="age">Age</label>
+    <input type="number" name="age" id="age" #cage="ngModel" [(ngModel)]="contact.age" gteValidator>
+    {{cfname.errors|json}}
+   {{ cfname.hasError('gte')}}
+    <div *ngIf="!cage?.valid && (cage?.dirty || cage?.touched)" class="error">
+        <div *ngIf="cfname.hasError('gte')">
+            Age should be more than 18
+        </div>
+    </div>
+    <br>
+    <br>
+    <label  for="married">Married</label>
+    <input type="checkbox" name="married" id="married" #cmarried [(ngModel)]="contact.married">
+    <br>
+    <br>
+    <label  for="gender">Gender</label>
+    <input type="radio" value="male" name="gender" id="gender" #cgender [(ngModel)]="contact.gender">Male
+    <input type="radio" value="female" name="gender" id="gender" #cgender [(ngModel)]="contact.gender">Female
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="reset(contactForm)">Reset</button>
+
+</form>
+
+
+
+<ng-template #elseblock></ng-template>

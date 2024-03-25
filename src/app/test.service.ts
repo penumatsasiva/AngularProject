@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable,of,delay, catchError, map, mergeMap, tap, forkJoin} from 'rxjs'
-import { CityModel, ProductModel } from 'src/store/todo.model';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ updateMethid(value:string){
   this.data.next(value)
 }
 
-getProductList():Observable<ProductModel[]>{
+getProductList():Observable<any>{
 
   return of([{id:1,
     description:'suzuki',
@@ -38,7 +37,7 @@ public getImage():Observable<string>{
 
 }
 
-public getCities():Observable<CityModel[]>{
+public getCities():Observable<any[]>{
   return of([{"name":'hyderabad',"id":1},{"name":'banglore',"id":2},{"name":'mumbai',"id":3},{"name":'pune',"id":4},{"name":'delhi',"id":5}
 ]
 

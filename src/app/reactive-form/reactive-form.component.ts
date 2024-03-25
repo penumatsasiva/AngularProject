@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { ContactFormModel } from 'src/store/todo.model';
 
 export function gte(control:AbstractControl):null|ValidationErrors{
 const val=control.value

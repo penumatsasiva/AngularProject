@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TestService } from '../test.service';
-import { CityModel } from 'src/store/todo.model';
 import { Subject, Subscription, debounceTime, switchMap, takeUntil } from 'rxjs';
 
 @Component({
@@ -9,7 +8,7 @@ import { Subject, Subscription, debounceTime, switchMap, takeUntil } from 'rxjs'
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent implements OnInit{
-  cities:CityModel[]
+  cities:any[]
   repos:any[]
 private subscription:Subscription;
   private search:Subject<string>

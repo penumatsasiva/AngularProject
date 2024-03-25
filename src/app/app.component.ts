@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChildComponent } from './child/child.component';
-import { CityModel } from 'src/store/todo.model';
 import { TestService } from './test.service';
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
 @Component({
